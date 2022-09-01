@@ -13,9 +13,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from mapsmx import MapsMX
-import geopandas
-import pyproj
+#from mapsmx import MapsMX
+#import geopandas
+#import pyproj
 
 import dash
 from dash import dcc, callback
@@ -80,13 +80,13 @@ centros_no_duplicados = centros_no_duplicados.rename(columns={'CRV ACTUAL':'MUNI
 # In[ ]:
 
 
-feminicidios = pd.read_csv('dbs/feminicidios-corregida-03-marzo-2022.csv', low_memory=False)
+"""feminicidios = pd.read_csv('dbs/feminicidios-corregida-03-marzo-2022.csv', low_memory=False)
 feminicidios.fecha_recepcion = pd.to_datetime(feminicidios.fecha_recepcion, format='%d/%m/%Y', errors='ignore')
 feminicidios['año_recepcion'] = feminicidios['fecha_recepcion'].dt.year
 nas = feminicidios[(feminicidios.TipoRelacion.isna()==True)|(feminicidios.TipoRelacion=='Seleccione')].index
 feminicidios.loc[nas,'TipoRelacion'] = 'Desconocido'
 com = feminicidios[(feminicidios.TipoRelacion=='En la comunidad')].index
-feminicidios.loc[com,'TipoRelacion'] = 'Comunidad'
+feminicidios.loc[com,'TipoRelacion'] = 'Comunidad'"""
 
 
 # In[ ]:
@@ -158,7 +158,7 @@ victimas.loc[juzgados,'Dependencia de recepcion']='PODER JUDICIAL'
 # In[ ]:
 
 
-no = victimas[victimas['Victima de Trata']=='Se desconoce'].index
+"""no = victimas[victimas['Victima de Trata']=='Se desconoce'].index
 victimas.loc[no, 'Victima de Trata']= 'No'
 
 
@@ -182,13 +182,13 @@ subtipo.fecha_recepcion = pd.to_datetime(subtipo.fecha_recepcion, format='%d/%m/
 subtipo.fecha_hechos = pd.to_datetime(subtipo.fecha_hechos, format='%d/%m/%Y', errors='ignore')
 subtipo = subtipo.dropna()
 selecciones = subtipo[subtipo.SubtipoOrd=='Seleccione'].index
-subtipo.loc[selecciones, 'SubtipoOrd'] = 'No especificado'
+subtipo.loc[selecciones, 'SubtipoOrd'] = 'No especificado'"""
 
 
 # In[ ]:
 
 
-state = MapsMX().get_geo('state')
+"""state = MapsMX().get_geo('state')
 muns = MapsMX().get_geo('municipality')
 yuc = muns[muns['cve_ent']=='31']
 
@@ -249,7 +249,7 @@ discapacidad.loc[judicial, 'Dependencia de recepcion'] = 'PODER JUDICIAL'
 discapacidad.loc[salud, 'Dependencia de recepcion'] = 'SECRETARÍA DE SALUD'
 discapacidad.loc[victimass, 'Dependencia de recepcion'] = ' COMISIÓN EJECUTIVA ESTATAL DE ATENCIÓN A VÍCTIMAS'
 discapacidad.loc[seguridad, 'Dependencia de recepcion'] = 'SECRETARÍA DE SEGURIDAD PÚBLICA'
-discapacidad.loc[juzgados,'Dependencia de recepcion']='PODER JUDICIAL'
+discapacidad.loc[juzgados,'Dependencia de recepcion']='PODER JUDICIAL'"""
 
 
 # In[ ]:
@@ -417,7 +417,7 @@ index_page = html.Div([
     dcc.Link('Go to Page 2', href='/page-2'),
 ])
 
-page_1_layout = html.Div(
+"""page_1_layout = html.Div(
     children=[
         html.H1(children="SEMUJERES TABLERO",),
         html.P(
@@ -915,7 +915,7 @@ def update_charts(dependencia, start_date, end_date):
                 labels = {'x': 'Victima de violencia', "y":'Número de casos', 'text':'Porcentaje'},
                 color=px.colors.qualitative.Prism[:colors],
                 color_discrete_map="identity",
-                title="""Gráfica 12. Mujeres que han experimentado violencia por parte de su última pareja en los últimos 12 meses<br><b>Total de casos en los últimos 12 meses:</b> {}""".format(len(ultimo_año))
+                title=""Gráfica 12. Mujeres que han experimentado violencia por parte de su última pareja en los últimos 12 meses<br><b>Total de casos en los últimos 12 meses:</b> {}"".format(len(ultimo_año))
                 )
     fig_12.update_xaxes(type='category')
     fig_12.update_layout( xaxis_title=None,)
@@ -990,7 +990,7 @@ def update_charts(dependencia, start_date, end_date):
     else:
         fig_15=px.bar(title='Gráfica 15. Servicios proporcionados por la dependencia: SIN INFORMACION PARA ESTA DEPENDENCIA')
     
-    return fig_1,map_1,fig_2,map_2,fig_3,fig_4,fig_5, fig_6, fig_7, fig_8,fig_9,fig_10,fig_11,fig_12, fig_13, fig_14, fig_15
+    return fig_1,map_1,fig_2,map_2,fig_3,fig_4,fig_5, fig_6, fig_7, fig_8,fig_9,fig_10,fig_11,fig_12, fig_13, fig_14, fig_15"""
 
 """page_2_layout = html.Div([
     html.H1('Page 2'),
@@ -1812,7 +1812,8 @@ def update_charts_2(centro,start_date, end_date):
               [Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/page-1':
-        return page_1_layout
+        #return page_1_layout
+        return None
     elif pathname == '/page-2':
         return page_2_layout
     else:
