@@ -62,7 +62,7 @@ def strip_accents(text):
 
     return str(text)
 
-centros = pd.read_csv('dbs/BASE_CUENTAS_2022 (3).csv')
+centros = pd.read_csv('https://raw.githubusercontent.com/Tokiyomi/semujeres_app/master/dbs/BASE_CUENTAS_2022%20(3).csv')
 centros = centros.dropna(axis = 0, how = 'all')
 centros['CRV ACTUAL']=centros['CRV ACTUAL'].fillna('DESCONOCIDO')
 #centros['CRV ACTUAL'] = centros['CRV ACTUAL'].apply(lambda x: x.replace('2','x'))
@@ -92,14 +92,14 @@ feminicidios.loc[com,'TipoRelacion'] = 'Comunidad'"""
 # In[ ]:
 
 
-servicios = pd.read_csv('dbs/servicios_29_AGOSTO_2022.csv', low_memory=False)
+servicios = pd.read_csv('https://raw.githubusercontent.com/Tokiyomi/semujeres_local/master/BD-sucias/servicios_29_AGOSTO_2022.csv', low_memory=False)
 servicios.fecha_captura = pd.to_datetime(servicios.fecha_captura, format='%d/%m/%Y', errors='ignore')
 
 
 # In[ ]:
 
 
-status = pd.read_csv('dbs/status_29_AGOSTO_2022.csv', low_memory=False)
+status = pd.read_csv('https://raw.githubusercontent.com/Tokiyomi/semujeres_local/master/BD-sucias/status_29_AGOSTO_2022.csv', low_memory=False)
 status['fecha_recepcion'] = pd.to_datetime(status.fecha_recepcion, format='%d/%m/%Y', errors='ignore')
 status=status.loc[status.dependeciaUsuario.str.contains('MUJER')==True]
 status=status.merge(centros_no_duplicados, left_on='fk_usuario', right_on='CUENTA', how='left')
@@ -112,7 +112,7 @@ status_tabla=status.reset_index()
 # In[ ]:
 
 
-victimas = pd.read_csv('reportes/reporte_semujeres_29_AGOSTO_2022.csv',low_memory=False, dtype={'pk_perfil_agresor': 'object','num_hijos':'int32'}, parse_dates=['fecha_recepcion','fecha_hechos'])
+victimas = pd.read_csv('https://raw.githubusercontent.com/Tokiyomi/semujeres_local/master/Exploracion%20de%20datos/reporte_semujeres/reporte_semujeres_29_AGOSTO_2022.csv',low_memory=False, dtype={'pk_perfil_agresor': 'object','num_hijos':'int32'}, parse_dates=['fecha_recepcion','fecha_hechos'])
 
 
 # In[ ]:
