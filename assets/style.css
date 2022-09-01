@@ -1,0 +1,153 @@
+/*@import url(//db.onlinewebfonts.com/c/24398819ac2f8f57d97b6d2c131686fe?family=Panton-Bold);
+@import url(//db.onlinewebfonts.com/c/15066d43f2e43c9e9294b036264c581a?family=PantonW01-Regular);*/
+
+body {
+    font-family: "Panton-Bold", sans-serif;
+    margin: 0;
+    background-color: #F7F7F7;
+}
+
+.header {
+    /*background-color: #222222;*/
+    background-color: #25054A;
+    /*background-color: #9C3030;*/
+    height: 288px;
+    padding: 16px 0 0 0;
+}
+
+.header-emoji {
+    font-size: 48px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header-img {
+    margin: 0 auto;
+    height: 25%;
+}
+
+.header-title {
+    color: #FFFFFF;
+    /*color: #9C3030;*/
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.header-description {
+    color: #CFCFCF;
+    margin: 10px auto;
+    text-align: center;
+    max-width: 384px;
+}
+
+.p-description {
+    color: #222222;
+    font-family: "PantonW01-Regular", sans-serif;
+}
+
+.dropdown {
+    color: #222222;
+    font-family: "PantonW01-Regular", sans-serif;
+}
+
+.wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 75%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 32px;
+}
+
+.card {
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
+    margin: 20px auto 20px auto;
+    padding: 1em;
+    background-color: #FFFFFF;
+}
+
+.menu {
+    height: 112px;
+    /*width: 912px;*/
+    max-width: 912pxpx;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*margin: -80px auto 0 auto;*/
+    margin: -5% 25% 0 25%;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.18);
+    text-align: center;
+}
+
+.Select-control {
+    width: 256px;
+    height: 48px;
+}
+
+.Select--single > .Select-control .Select-value, .Select-placeholder {
+    line-height: 48px;
+}
+
+.Select--multi .Select-value-label {
+    line-height: 32px;
+}
+
+.menu-title {
+    margin-bottom: 6px;
+    font-weight: bold;
+    /*color: #079A82;
+    color: #9C3030;*/
+    color: #9C3030;
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.left {
+    margin-top: 23px;
+    width: 30%;
+    
+    
+}
+
+.h-row {
+    max-height: 30%;
+    
+}
+
+.right {
+    width: 70%;
+    
+    
+    
+}
+
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.footer {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: #F7F7F7;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #222222;
+    font-family: "PantonW01-Regular", sans-serif;
+}
